@@ -1,6 +1,53 @@
 ---
 layout: default
 featured_image: 'https://dl.airtable.com/5pDVBC9xSfCmkgKE9D1S_1-1.jpeg'
+sections:
+  -
+    heading: 'What time are your services?'
+    Image: 
+    content_markdown: |
+      At Calvary Bible Church we offer 3 services on Sunday. At 9:30 am, we have Sunday School classes for adults and children of all ages. At 10:45am, we have our main Sunday Morning service. Our Sunday Evening service is at 6pm. Our Wednesday Bible Study is at 7 pm, with youth group at the same time. Childcare and Nursery are provided for all services, so bring the kids! Pagers are provided for your peace of mind.
+  -
+    heading: 'What sort of music do you use, in your services?'
+    Image:
+    content_markdown: |
+      We are blessed to have several musically inclined individuals that enjoy serving the Lord through the music ministry. We believe in using conservative, God-honoring hymns and spiritual songs, while avoiding contemporary music and beats that do not emphasize, nor honor, the Lord Jesus Christ.
+  -
+    heading: 'What sort of music do you use, in your services?'
+    Image:
+    content_markdown: |
+      We primarily use expository preaching in our services: taking the Bible and preaching verse-by-verse, so that a direct application can be made. Occasionally, we will have topical preaching or character studies that are always soaked in the scriptures. The pastor and teachers do not have an agenda, other than Christ, and do not emphasize politics from the pulpit.
+  -
+    heading: 'What sort of doctrine do you hold to?'
+    Image:
+    content_markdown: |
+      We hold simply to the Bible. We do not hold to any form of Calvinism or Arminianism. We are not part of any councils, fellowships, synods, or otherwise. We do not give preference or persecution based upon college, church background, personal history, or otherwise. We are not ecumenical or neo-evangelical. We simply believe in holding to the doctrine of Jesus Christ, as put forth in God's Word: fellowshipping with those that love the Truth, and avoiding those that do not.
+  -
+    heading: 'What are your nursery ages?'
+    Image:
+    content_markdown: |
+      Our nursery ages range from 0-3 years of age. We provide a nursery for all services.
+  -
+    heading: 'Do you have services for children?'
+    Image:
+    content_markdown: |
+      During the Sunday School hour, Calvary has an exciting Children’s ministry where your kids will be taught the Bible in age-appropriate classes. During the morning service, we offer a Jr. Church program for ages 4 through 5th grade. Nursery is available for children 0-3, and pagers are available.
+  -
+    heading: 'About how long are your services?'
+    Image:
+    content_markdown: |
+      Our services last about 60 to 90 minutes, depending on the day, and contain music, prayer, and teaching from the Bible that will apply directly to your life.
+  -
+    heading: 'Is there a dress code?'
+    Image:
+    content_markdown: |
+      We do not have a dress code, nor do we judge folks by their attire. The pastor and church leaders will be dressed in business attire (suit and tie), but we encourage everyone else to dress in clothes that are comfortable for them. We simply encourage everyone to give God their best with what they have.  Our main goal is that you feel welcome during your visit with us.
+  -
+    heading: 'Will I be singled out if I’m new?'
+    Image:
+    content_markdown: |
+      Absolutely not. You are our guest. Each Sunday, there are people just like you who are attending Calvary Bible for the first time. Our goal is for you to have the best experience possible.
+
 ---
   <!-- Start Nav Backed Header -->
   <div class="nav-backed-header parallax">
@@ -40,15 +87,15 @@ featured_image: 'https://dl.airtable.com/5pDVBC9xSfCmkgKE9D1S_1-1.jpeg'
               {% endif %}
           </div><!--/featured-image-->
           <div class="col-md-10 col-md-offset-1">
-            {% for section in site.data.welcome %}
+            {% for section in page.sections %}
               <div class="content-row">
-                <h2 style="text-align: center; margin-top: 40px;">{{section.Section_title}}</h2>
+                <h2 style="text-align: center; margin-top: 40px;">{{section.heading}}</h2>
                 <div class="row">
                   {% if section.Image %}
                     
                     <div class="col-md-8">
-                        {% if  section.Content %}
-                {{section.Content | markdownify }}
+                        {% if  section.content %}
+                {{section.content | markdownify }}
                 {% endif %}
                     </div><!--/col-md-8-->
                     <div class="col-md-4">
@@ -57,8 +104,8 @@ featured_image: 'https://dl.airtable.com/5pDVBC9xSfCmkgKE9D1S_1-1.jpeg'
                          {% endfor %}
                     </div><!--/col-md-4-->
                   {% else %}
-                {% if  section.Content %}
-                {{section.Content | markdownify }}
+                {% if  section.content_markdown %}
+                {{section.content_markdown | markdownify }}
                 {% endif %}
                 {% endif %}
                 </div><!--/row-->
