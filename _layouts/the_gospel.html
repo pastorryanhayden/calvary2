@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+
+  {% include head.html %}
+
+  <body>
+
+    {% include header.html %}
+ <!-- Start Nav Backed Header -->
+  <div class="nav-backed-header parallax" 
+  {% if page.featured_image %}
+  style="background-image:url({{page.featured_image}}); background-size: cover; background-position: center bottom; "
+  {% else %}
+  style="background-image:url('http://sitesforchurch.s3.amazonaws.com/Gospel.png'); background-size: cover; background-position: center bottom; "
+{% endif %}
+
+    <div class="container">
+      <div class="row">
+        <div class="col-md-10 col-md-offset-1">
+          <ol class="breadcrumb">
+            <li><a href="{{site.url}}/index.html">Home</a></li>
+            <li>About Us</li>
+            <li class="active"><a href="#">The Gospel</a></li>
+          </ol>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- End Nav Backed Header --> 
+   <!-- Start Page Header -->
+  <div class="page-header">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-10 col-md-offset-1">
+          <h1>The Gospel</h1>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- End Page Header --> 
+
+    <!-- Start Body Content -->
+  <div class="main" role="main">
+    <div id="content" class="content full">
+      <div class="container">
+        <div class="row">
+
+          <article class="col-sm-12 col-md-10 col-md-offset-1">
+    
+            {{content}}
+         </article>
+          
+          
+          
+        </div><!--/row-->
+      </div><!--/container-->
+    </div><!--/content full-->
+  </div><!--/main-->
+   {% include footer.html %}
+
+  </body>
+
+</html>

@@ -1,0 +1,128 @@
+---
+layout: default
+featured_image: 
+---
+
+ <!-- Start Nav Backed Header -->
+  <div class="nav-backed-header parallax" 
+  {% if page.featured_image %}
+
+  style="background-image:url({{page.featured_image}}); background-size: cover; background-position: center bottom; "
+
+{% endif %}
+
+    <div class="container">
+      <div class="row">
+        <div class="col-md-10 col-md-offset-1">
+          <ol class="breadcrumb">
+            <li><a href="{{site.url}}/index.html">Home</a></li>
+            <li>About Us</li>
+            <li class="active"><a href="#">Our Leadership</a></li>
+          </ol>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- End Nav Backed Header --> 
+   <!-- Start Page Header -->
+  <div class="page-header">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-10 col-md-offset-1">
+          <h1>Our Leadership</h1>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- End Page Header --> 
+  
+  <!-- Start Body Content -->
+  	<div class="main" role="main">
+    	<div id="content" class="content full">
+    		<div class="container">
+               <div class="row">
+                <div class="col-md-12">
+                <h3>Our Pastor</h3>
+              	<hr class="sm">
+                  {% for leader in site.leaders %}
+        {% if  leader.Is_senior_pastor %}
+        <div class="col-sm-12 col-md-12" >
+           <div class="grid-item staff-item format-standard">
+                        	<div class="grid-item-inner">
+                                {% if leader.Thumbnail_path %}
+                                <img src="{{leader.Thumbnail_path}}" alt="" style="margin-left: auto; margin-right: auto; display: block;">
+                                {% endif %}
+                          		<div class="grid-content">
+                                	<div class="staff-item-name">
+                            			<h5>{{ leader.Name }}</h5>
+                                        <span class="meta-data">{{leader.Position}}</span>
+                                    </div>
+                                    <ul class="social-icons-colored" style="margin-bottom: 40px;">
+                                    {% if leader.Facebook %}
+                                        <li class="facebook"><a href="{{leader.Facebook}}"><i class="fa fa-facebook"></i> {{leader.Facebook}}</a></li>
+                                    {% endif %}
+                                    {% if leader.Twitter %}
+                                        <li class="twitter"><a href="{{leader.Twitter}}"><i class="fa fa-twitter"></i> {{leader.Twitter}}</a></li>
+                                    {% endif %}
+                                    {% if leader.Email %}
+                                        <li class="gmail"><a href="mailto:{{leader.Email}}"><i class="fa fa-envelope"></i> {{leader.Email}}</a></li>
+                                    {% endif %}
+                                    </ul>
+                            		<div style="text-align: left; max-width: 850px;margin-left: auto; margin-right: auto;">{% if  leader.content %}
+                  {{leader.content | markdownify }}
+                  {% endif %}</div>
+                          		</div><!--/grid-content-->
+                        	</div><!--grid-item-inner-->
+                      	</div><!--staff-item-->
+          </div>
+          
+          
+                      	
+                    
+
+
+        {% endif %}
+        {% endfor %}
+        {% if site.leaders > 1 %}
+          <h3>Staff and Leadership</h3>
+              	<hr class="sm">
+                 <div class="row">
+        }
+        {% for leader in site.data.leadership %}
+        {% unless  leader.Is_Senior_Pastor %}
+        <div class="col-md-3 col-sm-6" style="height: 600px;">
+                      	<div class="grid-item staff-item format-standard">
+                        	<div class="grid-item-inner">
+                                {% if leader.Photo %}
+                                <img src="{{leader.Photo[0].thumbnails.large.url}}" alt="" style="width: 100%">
+                                {% else %}
+                                <img src="http://vignette2.wikia.nocookie.net/naginoasukara/images/8/86/Placeholder_person.png/revision/latest?cb=20130924151342" alt="" width="100%">
+                                {% endif %}
+                          		<div class="grid-content">
+                                	<div class="staff-item-name">
+                            			<h5>{{ leader.Leader_Name }}</h5>
+                                        <span class="meta-data">{{leader.Position}}</span>
+                                    </div>
+                                    <ul class="social-icons-colored">
+                                        <li class="facebook"><a href="https://www.facebook.com/"><i class="fa fa-facebook"></i></a></li>
+                                        <li class="twitter"><a href="https://twitter.com/"><i class="fa fa-twitter"></i></a></li>
+                                        <li class="gmail"><a href="https://plus.google.com/"><i class="fa fa-envelope"></i></a></li>
+                                    </ul>
+                            	<div style="text-align: left; max-width: 850px;margin-left: auto; margin-right: auto;">{% if  leader.Content %}
+                  {{leader.Content | truncatewords: 50 | markdownify }}
+                  {% endif %}</div>
+                          		</div><!--/grid-content-->
+                        	</div><!--grid-item-inner-->
+                      	</div><!--staff-item-->
+                    </div><!--/col-->
+        {% endunless %}
+        {% endfor %}
+        {% endif %}
+          </div><!--/row-->
+                </div><!--/col-md-12-->
+               </div><!--/row-->
+        }
+        </div><!--/container-->
+   	</div><!--#content-->
+    <!-- End Body Content -->
+  
