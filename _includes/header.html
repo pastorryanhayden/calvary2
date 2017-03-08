@@ -1,4 +1,3 @@
-
 <body>
 <!--[if lt IE 7]>
 	<p class="chromeframe">You are using an outdated browser. <a href="http://browsehappy.com/">Upgrade your browser today</a> or <a href="http://www.google.com/chromeframe/?redirect=true">install Google Chrome Frame</a> to better experience this site.</p>
@@ -10,12 +9,10 @@
       <div class="container">
         <div class="row">
           <div class="col-md-4 col-sm-6 col-xs-8">
-             {% if  {{site.data.info[0].Church_Logo %}
-          {% for img in site.data.info[0].Church_Logo %}
-          <h1 class="logo"> <a href="{{site.url}}/"><img src="{{img.url}}" alt="Logo"></a> </h1>
-          {% endfor %}
+             {% if  site.data.settings.church_logo_image_path %}
+          <h1 class="logo"> <a href="{{site.url}}/"><img src="{{site.data.settings.church_logo_image_path}}" alt="Logo"></a> </h1>
           {% else %}
-          <h1 class="logo"> <a href="{{site.url}}/">{{site.data.info[0].Church_Name}}</a> </h1>
+          <h1 class="logo"> <a href="{{site.url}}/">{{site.data.settings.church_name}}</a> </h1>
           <h5></h5>
           {% endif %}
           </div>
@@ -77,8 +74,8 @@
                 </li>
                 <li><a href="about.html">Ministries</a>
                   <ul class="dropdown">
-                    {% for item in site.data.ministries %}
-                    <li><a href="{{ item.name | datapage_url: 'ministries' | prepend: site.baseurl | prepend: site.url }}">{{item.name}}</a></li>
+                    {% for item in site.ministries %}
+                    <li><a href="{{ item.url }}">{{item.name}}</a></li>
                     {% endfor %}
                 </ul></li>
                 <li><a href="{{site.url}}/calendar-list.html">Calendar</a></li>

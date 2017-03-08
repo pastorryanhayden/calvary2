@@ -5,20 +5,18 @@
         <!-- Start Footer Widgets -->
         <div class="col-md-4 col-sm-4 widget footer-widget">
           <h4 class="footer-widget-title">About our Church</h4>
-          {% if  {{site.data.info[0].Church_Logo %}
-          {% for img in site.data.info[0].Church_Logo %}
-          <img src="{{img.url}}" alt="Logo">
-          {% endfor %}
+          {% if site.data.settings.church_logo_image_path %}
+          <img src="{{site.data.settings.church_logo_image_path}}" alt="Logo">
           {% else %}
-          <h5>{{site.data.info[0].Church_Name}}</h5>
+          <h5>{{site.data.settings.church_name}}</h5>
           {% endif %}
           <div class="spacer-20"></div>
-          <p>{{site.data.home[0].Intro_Text}}</p>
+          <p>{{site.data.settings.church_description}}</p>
         <div class="address">
-            <p><i class="fa fa-map-marker"></i>  {{site.data.location[0].Street_Address}} {{site.data.location[0].Street_Address2}} {{site.data.location[0].City }}, {{site.data.location[0].State }} {{site.data.location[0].Zip }} <br>
-                <i class="fa fa-phone"></i>  {{site.data.contact[0].Phone }} <br>
-                <i class="fa fa-envelope"></i>  {{site.data.contact[0].Church_email }} <br>
-                <a href="http://airtable.com" title="sign in" class="footer-sign-in" target="blank"><i class="fa fa-cog"></i> Manager Sign In</a>
+            <p><i class="fa fa-map-marker"></i>  {{site.data.settings.address}} {% if site.data.settings.address2%}<br>{{site.data.settings.address2}}{%endif%}<br> {{site.data.settings.City }}, {{site.data.settings.State }} {{site.data.settings.Zip }} <br>
+                <i class="fa fa-phone"></i>  {{site.data.settings.phone }} <br>
+                <i class="fa fa-envelope"></i>  {{site.data.settings.church_email }} <br>
+                <a href="{{site.url}}/update" title="sign in" class="footer-sign-in" target="blank"><i class="fa fa-cog"></i> Manager Sign In</a>
             </p>
         </div><!--/address-->
         </div>
@@ -35,8 +33,8 @@
         <div class="col-md-4 col-sm-4 widget footer-widget">
           <h4 class="footer-widget-title" id="service" >Service Schedule</h4>
           <ul class="sub-menu">
-            {% for item in site.data.service_schedule %}
-            <li><a href="#">{{item.Service_name}}</a> <span class="meta-data">{{item.Service_time}}</span> </li>
+            {% for item in site.data.settings.Service_Schedule %}
+            <li><a href="#">{{item.service_name}}</a> <span class="meta-data">{{item.service_time}}</span> </li>
             {% endfor %}
 
           </ul>
@@ -48,25 +46,25 @@
     <div class="container">
       <div class="row">
         <div class="copyrights-col-left col-md-6 col-sm-6">
-          <p>&copy; 2015 {{site.data.info[0].Church_Name}}. All Rights Reserved</p> <a href="http://www.airtable.com" target="blank">Admin Log In </a>
+          <p>&copy; 2015 {{site.data.settings.church_name}}. All Rights Reserved</p> <a href="{{site.url}}/update" target="blank">Admin Log In </a>
         </div>
         <div class="copyrights-col-right col-md-6 col-sm-6">
-          <div class="social-icons"> {% if site.data.contact[0].Facebook %}
-           <a href="{{site.data.contact[0].Facebook}}" target="_blank"><i class="fa fa-facebook"></i></a>{% endif %} {% if site.data.contact[0].Twitter %}<a href="{{site.data.contact[0].Twitter}}" target="_blank"><i class="fa fa-twitter"></i></a>{% endif %} {% if site.data.contact[0].Youtube %}<a href="#"><i class="fa fa-youtube"></i></a>{% endif %} </div>
+          <div class="social-icons"> {% if site.data.settings.facebook %}
+           <a href="{{site.data.settings.facebook}}" target="_blank"><i class="fa fa-facebook"></i></a>{% endif %} {% if site.data.settings.twitter %}<a href="{{site.data.settings.twitter}}" target="_blank"><i class="fa fa-twitter"></i></a>{% endif %} {% if site.data.settings.youtube %}<a href="{{site.data.settings.youtube}}"><i class="fa fa-youtube"></i></a>{% endif %} </div>
         </div>
       </div>
     </div>
   </footer>
   <!-- End Footer -->
   <a id="back-to-top"><i class="fa fa-angle-double-up"></i></a> </div>
-<script src="{{site.url}}assets/js/jquery-2.0.0.min.js"></script> <!-- Jquery Library Call --> 
-<script src="{{site.url}}assets/plugins/prettyphoto/js/prettyphoto.js"></script> <!-- PrettyPhoto Plugin --> 
-<script src="{{site.url}}assets/js/helper-plugins.js"></script> <!-- Plugins --> 
-<script src="{{site.url}}assets/js/bootstrap.js"></script> <!-- UI --> 
-<script src="{{site.url}}assets/js/waypoints.js"></script> <!-- Waypoints --> 
-<script src="{{site.url}}assets/plugins/mediaelement/mediaelement-and-player.min.js"></script> <!-- MediaElements --> 
-<script src="{{site.url}}assets/js/init.js"></script> <!-- All Scripts --> 
-<script src="{{site.url}}assets/plugins/flexslider/js/jquery.flexslider.js"></script> <!-- FlexSlider --> 
-<script src="{{site.url}}assets/plugins/countdown/js/jquery.countdown.min.js"></script> <!-- Jquery Timer -->
+<script src="{{site.url}}/assets/js/jquery-2.0.0.min.js"></script> <!-- Jquery Library Call --> 
+<script src="{{site.url}}/assets/plugins/prettyphoto/js/prettyphoto.js"></script> <!-- PrettyPhoto Plugin --> 
+<script src="{{site.url}}/assets/js/helper-plugins.js"></script> <!-- Plugins --> 
+<script src="{{site.url}}/assets/js/bootstrap.js"></script> <!-- UI --> 
+<script src="{{site.url}}/assets/js/waypoints.js"></script> <!-- Waypoints --> 
+<script src="{{site.url}}/assets/plugins/mediaelement/mediaelement-and-player.min.js"></script> <!-- MediaElements --> 
+<script src="{{site.url}}/assets/js/init.js"></script> <!-- All Scripts --> 
+<script src="{{site.url}}/assets/plugins/flexslider/js/jquery.flexslider.js"></script> <!-- FlexSlider --> 
+<script src="{{site.url}}/assets/plugins/countdown/js/jquery.countdown.min.js"></script> <!-- Jquery Timer -->
 </body>
 </html>

@@ -1,5 +1,19 @@
 ---
 layout: default
+features:
+  -
+    text: New Here?
+    image: 'https://dl.airtable.com/KORaKMeKTj6quWt60BXj_full_1.png'
+    url: 'welcome.html'
+  -
+    text: Our Beliefs
+    image: 'https://dl.airtable.com/VwRH3EVWRTWbOpbmf2jS_full_2.png'
+    url: 'our-beliefs.html'
+  -
+    text: The Gospel
+    image: 'https://dl.airtable.com/UgrVmQBXSV6dhJE3cB37_full_u2EZuJeTSyz2W0uVyOjg_full_Untitled%20design.png'
+    url: 'the-gospel.html'
+
 ---
 
   <!-- Start Hero Slider -->
@@ -19,18 +33,13 @@ layout: default
         <div class="row"> 
           <!-- Start Featured Blocks -->
           <div class="featured-blocks clearfix">
-            <div class="col-md-4 col-sm-4 featured-block"> <a href="{{site.url}}{{site.data.home[0].Link_1_URL}}" class="img-thumbnail">{% for img in site.data.home[0].Link_1_Image %}
-              <img src="{{img.url}}" alt="staff">
-              {% endfor %}
-               <strong>{{site.data.home[0].Link_1_Text}}</strong> <span class="more">read more</span> </a> </div>
-               <div class="col-md-4 col-sm-4 featured-block"> <a href="{{site.url}}{{site.data.home[0].Link_2_URL}}" class="img-thumbnail">{% for img in site.data.home[0].Link_2_Image %}
-              <img src="{{img.url}}" alt="staff">
-              {% endfor %}
-               <strong>{{site.data.home[0].Link_2_Text}}</strong> <span class="more">read more</span> </a> </div>
-               <div class="col-md-4 col-sm-4 featured-block"> <a href="{{site.url}}{{site.data.home[0].Link_3_URL}}" class="img-thumbnail">{% for img in site.data.home[0].Link_3_Image %}
-              <img src="{{img.url}}" alt="staff">
-              {% endfor %}
-               <strong>{{site.data.home[0].Link_3_Text}}</strong> <span class="more">read more</span> </a> </div>
+          {% for feature in page.features | limit: 3 %}
+
+            <div class="col-md-4 col-sm-4 featured-block"> <a href="{{site.url}}/{{feature.url}}" class="img-thumbnail">
+              <img src="{{feature.image}}" alt="staff">
+               <strong>{{feature.text}}</strong> <span class="more">read more</span> </a> </div>
+              
+            {% endfor %}
            
           </div>
           <!-- End Featured Blocks --> 
@@ -44,24 +53,24 @@ layout: default
               </header>
               <section class="listing-cont">
                 <ul>
-                  {% for post in site.data.blog | limit: 2 %}
+                  {% for post in site.posts | limit: 2 %}
                   <li class="item post">
                     <div class="row">
                       <div class="col-md-4"> 
                         {% if  post.featured_image %}
-                        {% for img in post.featured_image | limit:1 %}
-                        <a href="{{ post.title | datapage_url: 'blog-posts' | prepend: site.baseurl | prepend: site.url }}" class="media-box"> <img src="{{img.url}}" alt="" class="img-thumbnail"> </a>
-                        {% endfor %}
+                        
+                        <a href="{{ post.url }}" class="media-box"> <img src="{{post.featured_image}}" alt="" class="img-thumbnail"> </a>
+                        
                         {% else %}
-                         <a href="{{ post.title | datapage_url: 'blog-posts' | prepend: site.baseurl | prepend: site.url }}" class="media-box"> <img src="{{site.default_blog_image}}" alt="" class="img-thumbnail"> </a>
+                         <a href="{{ post.url }}" class="media-box"> <img src="{{site.data.settings.main_blog_image}}" alt="" class="img-thumbnail"> </a>
                         {% endif %}
                         </div>
                       <div class="col-md-8">
                         <div class="post-title">
-                          <h2><a href="{{ post.title | datapage_url: 'blog-posts' | prepend: site.baseurl | prepend: site.url }}">{{post.title}}</a></h2>
-                          <span class="meta-data"><i class="fa fa-calendar"></i> on {{post.date_added| date: "%B %-d, %Y" }}</span></div>
-                        {{post.body_content | truncate: 200 | markdownify }}
-                        <a href="{{ post.title | datapage_url: 'blog-posts' | prepend: site.baseurl | prepend: site.url }}" class="btn btn-primary">Read More</a>
+                          <h2><a href="{{ post.url }}">{{post.title}}</a></h2>
+                          <span class="meta-data"><i class="fa fa-calendar"></i> on {{post.date| date: "%B %-d, %Y" }}</span></div>
+                        {{post.content | truncate: 200 | markdownify }}
+                        <a href="{{ post.url }}" class="btn btn-primary">Read More</a>
                       </div>
                     </div>
                   </li>

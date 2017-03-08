@@ -20,7 +20,7 @@ layout: default
           <ol class="breadcrumb">
             <li><a href="index.html">Home</a></li>
             <li><a href="#">Ministries</a></li>
-            <li class="active">{{page.title}}</li>
+            <li class="active">{{page.name}}</li>
           </ol>
         </div>
       </div>
@@ -45,12 +45,13 @@ layout: default
         <div class="row">
           <div class="col-md-8">
             <header class="single-post-header clearfix">
-              <h2 class="post-title">{{page.title}}</h2>
+              <h2 class="post-title">{{page.name}}</h2>
             </header>
             <div class="post-content">
-                {% if  page.featured_image%}
+                {% if  page.header_image %}
+                <img src="{{page.header_image}}"  class="img-thumbnail">
                 {% else %}
-            	<img src="{{site.url}}{{site.default_ministry_image}}"  class="img-thumbnail">
+            	<img src="{{site.url}}/{{site.default_ministry_image}}"  class="img-thumbnail">
                 {% endif %}
                <div class="spacer-30"></div>
                <div class="panel ministry-details" style="border: 2px solid #333333;">
@@ -101,9 +102,7 @@ layout: default
                 </div><!--/panel-body-->
                 </div><!--/panel-->
                <div class="spacer-30"></div>
-                {% if page.body_content %}
-                {{page.body_content | markdownify }}
-                {% endif %}
+                {{content}}
             </div>
           </div>
           <!-- Start Sidebar -->

@@ -8,8 +8,8 @@ layout: default
       <div class="row">
         <div class="col-md-12">
           <ol class="breadcrumb">
-            <li><a href="{{site.url}}index.html">Home</a></li>
-            <li><a href="{{site.url}}sermons.html">Sermons</a></li>
+            <li><a href="{{site.url}}/index.html">Home</a></li>
+            <li><a href="{{site.url}}/sermons.html">Sermons</a></li>
             <li class="active">{{page.title}}</li>
           </ol>
         </div>
@@ -61,7 +61,7 @@ layout: default
                       <a href="#" class="media-box"> <img src="{{img.url}}" alt="" class="img-thumbnail"> </a>
                       {% endfor %}
                 {% else %}
-                    <img src="http://placehold.it/560x315?text=sermons+graphic" alt="">
+                    <img src="{{site.data.settings.main_sermon_image}}" alt="">
                 {% endif %}
               </div>
               {% if page.sermon_mp3 %}

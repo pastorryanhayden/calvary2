@@ -1,5 +1,5 @@
 ---
-layout: default
+layout: events
 ---
 <div class="nav-backed-header parallax" style="background-image:url(images/slide2.jpg);">
     <div class="container">
@@ -32,38 +32,40 @@ layout: default
         <div class="row">
           <div class="col-md-12">
             <div id='calendar'>
-                
+                <div id='calendar_view'></div>
 <div class="calendar-list col-md-10 col-md-offset-1" >
 <div class="calendar-list-content">
-    {% for event in site.data.events %}
+    {% for event in site.events limit: 6 %}
+    {% capture now-unix-seconds %}{{ 'now' | date: '%s' }}{% endcapture %}
+    {% capture event-time-seconds %}{{event.start_at | date: '%s' }}{% endcapture %}
+    {% capture now-unix %}{{ now-unix-seconds | divided_by: 86400}}{% endcapture %}
+    {% capture event-time %}{{ event-time-seconds | divided_by: 86400}}{% endcapture %}
+    {% if now-unix <= event-time %} 
     <div class="calendar-list-item">
-        <div class="col-md-3">
-        {% if  event.featured_image %}
-        {% for img in event.featured_image %}
-        <img src="{{img.url}}" alt="{{event.event_name}}">
-        {% endfor %}
+        {% if event.featured_image %}
+        <img src="{{event.featured_image}}" alt="{{event.event_name}}">
         {% else %}
-        <img src="{{site.default_calendar_image}}" alt="">
+        <img src="{{site.data.settings.default_calendar_image}}" alt="">
         {% endif %}
-        </div><!--/col-md-3-->
-        <div class="details col-md-9">
-            <h3><a href="{{ event.event_name | datapage_url: 'events' | prepend: site.baseurl | prepend: site.url }}">{{event.event_name}}</a></h3>
+
+        <div class="details">
+            <h3><a href="{{ event.url }}">{{event.title}}</a></h3>
             <div class="details-inner">
                 <div class="details-description">
-                    {% if event.description  %}
-                    {{ event.description | markdownify | truncate: 140 }}
+                    {% if event.description_markdown  %}
+                    {{ event.description_markdown | markdownify | truncatewords: 20 }}
                     {% endif %}
-                    <a href="{{ event.event_name | datapage_url: 'events' | prepend: site.baseurl | prepend: site.url }}" class="button hollow">More Details</a>
+                    <a href="{{ event.url }}" class="button hollow">More Details</a>
                 </div><!--/details-description-->
                 <div class="details-date">
-                    <p class="month">{{event.DateTime | date: "%b"}}</p>
-                    <p class="day">{{event.DateTime | date: "%d"}}</p>
+                    <p class="month">{{event.start_at | date: "%b"}}</p>
+                    <p class="day">{{event.start_at | date: "%d"}}</p>
                 </div><!--/details-date-->
             </div><!--/details-inner-->
         </div><!--/details-->
     </div><!--/calendar-list-item-->
+    {% endif %} 
     {% endfor %}
-   
 </div><!--/calendar-list-content-->
 </div><!--/calendar-list-->
 

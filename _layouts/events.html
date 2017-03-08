@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+
+  {% include head.html %}
+  <link href='//cdnjs.cloudflare.com/ajax/libs/fullcalendar/3.1.0/fullcalendar.min.css' rel='stylesheet' />
+    <link href='//cdnjs.cloudflare.com/ajax/libs/fullcalendar/3.1.0/fullcalendar.print.css' rel='stylesheet' media='print' />
+
+<style>
+
+  #calendar {
+    max-width: 900px;
+    margin: 0 auto;
+  }
+
+</style>
+  <body>
+
+    {% include header.html %}
+
+        {{ content }}
+
+    {% include footer.html %}
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/slideout/0.1.12/slideout.min.js"></script>
+    <script src='//cdnjs.cloudflare.com/ajax/libs/moment.js/2.17.1/moment.min.js'></script>
+    <script src='//cdnjs.cloudflare.com/ajax/libs/fullcalendar/3.1.0/fullcalendar.min.js'></script>
+    <script src='//cdnjs.cloudflare.com/ajax/libs/fullcalendar/3.1.0/gcal.js'></script>
+    <script>
+    $(document).ready(function(){
+
+     $('#calendar_view').fullCalendar({
+      header: {
+        left: 'prev,next today',
+        center: 'title',
+        right: 'month,agendaWeek,agendaDay'
+      },
+      navLinks: true, // can click day/week names to navigate views
+      editable: false,
+      eventLimit: true, // allow "more" link when too many events
+      eventColor: '#716558',
+      googleCalendarApiKey: 'AIzaSyBVd8t1-lhwkmXGfD9XRzE_85fcO5Fxa70',
+      eventSources: [
+      {events: [
+        {% for a in site.events %}
+            {
+                "title": "{{a.title}}",
+                "start": "{{a.start_at}}",
+                "end": "{{a.end_at}}",
+                "url": "{{a.url}}",
+                "allDay": "{{a.all_day}}",
+                "color" : "#BE552B"
+            },
+        {% endfor %}
+            ]},
+        {
+          googleCalendarId: '{{site.data.settings.Google_calendar_id}}'
+        }
+        ]
+    });
+
+    
+
+});
+    </script>
+
+  </body>
+
+</html>

@@ -37,20 +37,20 @@ layout: default
             </header>
             <div class="post-content">
               <div id="gmap">
-                {{ site.data.location[0].Google_Maps_Embed_Code | raw }}
+                {{ site.data.settings.google_maps_embed_code | raw }}
               </div>
               <div class="row">
                   {% if  site.data.contact_page[0].Content %}
                   {{ site.data.contact_page[0].Content | markdownify }}
                   {% endif %}
                    <div class="address">
-            <p><i class="fa fa-map-marker"></i>  {{site.data.location[0].Street_Address}} {{site.data.location[0].Street_Address2}} {{site.data.location[0].City }}, {{site.data.location[0].State }} {{site.data.location[0].Zip }} <br>
-                <i class="fa fa-phone"></i>  {{site.data.contact[0].Phone }} <br>
-                <i class="fa fa-envelope"></i>  {{site.data.contact[0].Church_email }} 
+            <p><i class="fa fa-map-marker"></i>  {{site.data.settings.address}} {{site.data.settings.address2}}{{site.data.settings.City }}, {{site.data.settings.State }} {{site.data.settings.Zip }} <br>
+                <i class="fa fa-phone"></i>  {{site.data.settings.phone }} <br>
+                <i class="fa fa-envelope"></i>  {{site.data.settings.church_email }} 
                 <hr>
               </div>
               <div class="row">
-                <form method="post" id="contactform" name="contactform" class="contact-form" action="mail/contact.php">
+               <!--  <form method="post" id="contactform" name="contactform" class="contact-form" action="mail/contact.php">
                   <div class="col-md-6 margin-15">
                     <div class="form-group">
                       <input type="text" id="name" name="name"  class="form-control input-lg" placeholder="Name*">
@@ -70,7 +70,7 @@ layout: default
                   <div class="col-md-12">
                     <input id="submit" name="submit" type="submit" class="btn btn-primary btn-lg pull-right" value="Submit now!">
                   </div>
-                </form>
+                </form> -->
                 <div class="clearfix"></div>
                 <div class="col-md-12">
                   <div id="message"></div>

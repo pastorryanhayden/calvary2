@@ -33,10 +33,6 @@ exclude:
   - Gemfile.lock
 
 page_gen:
-  - data: 'ministries'
-    template: 'ministries'
-    name: 'name'
-    dir: 'ministries'
   - data: 'series'
     template: 'series'
     name: 'title'
@@ -49,10 +45,6 @@ page_gen:
     template: 'blog-entry'
     name: 'title'
     dir: 'blog-posts'
-  - data: 'abouts'
-    template: 'aboutpage'
-    name: 'title'
-    dir: 'about-us'
   - data: 'events'
     template: 'event'
     name: 'event_name'
@@ -64,7 +56,12 @@ page_gen:
 collections:
   leaders:
     output: true
+  ministries:
+    output: true
   abouts:
     output: true
   beliefs:
     output: false
+  events:
+    output: true
+    _hide_content: true
