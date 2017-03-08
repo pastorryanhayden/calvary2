@@ -13,15 +13,38 @@ features:
     text: The Gospel
     image: 'https://dl.airtable.com/UgrVmQBXSV6dhJE3cB37_full_u2EZuJeTSyz2W0uVyOjg_full_Untitled%20design.png'
     url: 'the-gospel.html'
+sliders:
+  -
+    title: Bible
+    image: uploads/Lighted_Bible.jpg 
+    url: #
+    published: true
+  -
+    title: Creation Conference
+    image: uploads/creation_conference.jpg 
+    url: #
+    published: true
+  -
+    title: Nearing the End
+    image: uploads/end.jpg 
+    url: #
+    published: true
+  -
+    title: Tabernacle Series
+    image: uploads/tabernacle.jpg 
+    url: #
+    published: true     
 
 ---
 
   <!-- Start Hero Slider -->
   <div class="hero-slider flexslider clearfix" data-autoplay="yes" data-pagination="yes" data-arrows="yes" data-style="fade" data-pause="yes">
     <ul class="slides">
-      {% for slider in site.data.slider %}
-      <li class=" parallax" {% for img in slider.image | limit: 1 %} style="background-image:url({{img.url}});"{% endfor %}>{% if  slider.url %}
-        <a href="{{slider.url}}"></a>{% endif %}</li>
+      {% for slider in page.sliders %}
+      {% if slider.published %}
+      <li class=" parallax" style="background-image:url({{slider.image}});">{% if  slider.url %}
+        <a href="{{slider.url}}"></a>{% else %}<a href="#"></a> {% endif %}</li>
+      {% endif %}
       {% endfor %}
     </ul>
   </div>

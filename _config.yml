@@ -41,14 +41,6 @@ page_gen:
     template: 'sermon'
     name: 'title'
     dir: 'sermons'
-  - data: 'blog'
-    template: 'blog-entry'
-    name: 'title'
-    dir: 'blog-posts'
-  - data: 'events'
-    template: 'event'
-    name: 'event_name'
-    dir: 'events'
 
 
 #Collections stuff:
