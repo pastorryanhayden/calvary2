@@ -12,6 +12,7 @@ ruby RUBY_VERSION
 gem "jekyll", "3.3.1"
 gem "json"
 gem 'airtable'
+gem 'bigdecimal'
 gem 'activesupport'
 
 
