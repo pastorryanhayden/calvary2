@@ -57,3 +57,11 @@ collections:
   events:
     output: true
     _hide_content: true
+
+#Photos stuff
+flickr:
+  enabled:         yes
+  cache_dir:       ./_cache/flickr
+  api_key:         a9ad98f447551516910b51e998a5b600
+  shared_secret:   b5a237b8d1029236
+  auth_token:      72157681085218596-a702183dcf2d1655
