@@ -14,7 +14,6 @@ GEM
     colorator (1.1.0)
     concurrent-ruby (1.0.4)
     ffi (1.9.18)
-    flickraw (0.9.9)
     forwardable-extended (2.6.0)
     httparty (0.14.0)
       multi_xml (>= 0.5.2)
@@ -65,13 +64,12 @@ DEPENDENCIES
   activesupport
   airtable
   bigdecimal
-  flickraw
   jekyll (= 3.3.1)
   jekyll-feed (~> 0.6)
   json
 
 RUBY VERSION
-   ruby 2.3.3p222
+   ruby 2.4.0p0
 
 BUNDLED WITH
-   1.14.2
+   1.14.6

@@ -89,7 +89,7 @@ layout: default
               </div>
               <ul>
                   {% for item in site.data.series %}
-                <li><a href="{{ item.title | datapage_url: 'series' | prepend: site.baseurl | prepend: site.url }}">{{item.title}}</a></li>
+                <li><a href="{{ site.url }}/{{ item.title | datapage_url: 'series' }}">{{item.title}}</a></li>
                 {% endfor %}
                 
               </ul>
@@ -101,7 +101,7 @@ layout: default
               <ul>
                    {% for sermon in site.data.sermons %}
       {% if sermon.series_title[0] == page.series_title[0] %}
-                <li><a href="{{ sermon.title | datapage_url: 'sermons' | prepend: site.baseurl | prepend: site.url }}">{{sermon.title}}</a></li>
+                <li><a href="{{ site.url }}/{{ sermon.title | datapage_url: 'sermons' }}">{{sermon.title}}</a></li>
                 {% endif %}
                 {% endfor %}
               </ul>
