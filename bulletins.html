@@ -1,0 +1,69 @@
+---
+layout: default
+---
+<style>
+ul.bulletins {
+
+}
+ul.bulletins li {
+	font-size: 25px;
+	line-height: 40px;
+}
+ul.bulletins li a{
+	text-decoration: underline;
+	color: RGB(2, 45, 157);
+}
+ul.bulletins li svg {
+	height: 25px;
+	max-width: 30px;
+	fill: RGB(2, 45, 157);
+}
+</style>
+ <!-- Start Nav Backed Header -->
+  <div class="nav-backed-header parallax" 
+  {% if page.featured_image %}
+{% for img in page.featured_image %}
+  style="background-image:url({{img.url}}); background-size: cover; background-position: center bottom; "
+  {% endfor %}
+{% endif %}
+
+    <div class="container">
+      <div class="row">
+        <div class="col-md-10 col-md-offset-1">
+          <ol class="breadcrumb">
+            <li><a href="{{site.url}}/index.html">Home</a></li>
+            <li>Media</li>
+            <li class="active"><a href="#">Bulletins</a></li>
+          </ol>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- End Nav Backed Header --> 
+   <!-- Start Page Header -->
+  <div class="page-header">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-10 col-md-offset-1">
+          <h1>Bulletins</h1>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- End Page Header --> 
+  <!-- Start Content -->
+  <div class="main" role="main">
+    <div id="content" class="content full">
+      <div class="container">
+        <div class="row">
+<ul class="bulletins">
+	{% for bulletin in site.bulletins %}
+	<li><a href="{{ bulletin.bulletin_upload }}" target="blank"><svg width="100pt" height="100pt" version="1.1" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+ <path d="m11.012 90.426c0 4.8555 3.9414 8.7852 8.7969 8.7852h59.332c4.8555 0 8.7969-3.9336 8.7969-8.7852v-61.551c0-2.375-1.168-5.1797-2.8633-6.8594l-19.055-18.887c-1.6836-1.668-4.4805-2.8164-6.8516-2.8164h-39.359c-4.8477 0-8.7969 3.9336-8.7969 8.7852zm8.7969-85.719c-2.4219 0-4.3984 1.9648-4.3984 4.3906v81.328c0 2.4258 1.9688 4.3906 4.3984 4.3906h59.332c2.4258 0 4.4023-1.9648 4.4023-4.3906v-61.539h-18.699c-3.6367 0-6.582-2.9453-6.582-6.582v-17.598zm62.02 19.785h-16.984c-1.207 0-2.1875-0.98047-2.1875-2.1875v-16.711zm-13.641 19.465c1.2148 0 2.1953-0.98438 2.1953-2.1992 0-1.2148-0.98047-2.1992-2.1953-2.1992h-38.461c-1.2148 0-2.1992 0.98438-2.1992 2.1992 0 1.2148 0.98438 2.1992 2.1992 2.1992zm-17.582-15.055c1.2109 0 2.1953-0.98438 2.1953-2.1992s-0.98438-2.1992-2.1953-2.1992h-20.879c-1.2148 0-2.1992 0.98438-2.1992 2.1992s0.98438 2.1992 2.1992 2.1992zm17.582 30.438c1.2148 0 2.1953-0.98438 2.1953-2.1953 0-1.2148-0.98047-2.1992-2.1953-2.1992h-38.461c-1.2148 0-2.1992 0.98438-2.1992 2.1992 0 1.2109 0.98438 2.1953 2.1992 2.1953zm0 15.387c1.2148 0 2.1953-0.98437 2.1953-2.1992s-0.98047-2.1992-2.1953-2.1992h-38.461c-1.2148 0-2.1992 0.98438-2.1992 2.1992s0.98438 2.1992 2.1992 2.1992z" fill-rule="evenodd"/>
+</svg> {{ bulletin.title }}</a></li>
+	{% endfor %}
+</ul>
+ </div><!--/row-->
+      </div><!--/container-->
+    </div><!--/content full-->
+  </div><!--/main-->

@@ -57,6 +57,9 @@ collections:
   events:
     output: true
     _hide_content: true
+  bulletins:
+    output: true
+    _hide_content: true
 
 #Photos stuff
 flickr:
