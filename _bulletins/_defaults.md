@@ -1,5 +1,5 @@
 ---
 title:
 date:
-bulletin_upload: 
+bulletin_path: 
 ---
