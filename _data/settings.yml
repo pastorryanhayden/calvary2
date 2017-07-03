@@ -1,9 +1,9 @@
 church_name: Calvary Bible Church
 church_logo_image_path: 'http://sitesforchurch.s3.amazonaws.com/1-3.png'
 church_logo2_image_path: 'http://sitesforchurch.s3.amazonaws.com/1-3.png'
-church_description: Calvary Bible Church loves the people of Westminster because Jesus loves the people of Westminster. Ours is a dynamic church where the Bible is changing lives.
+church_description: 'How can we help you? Do you need prayer or need a friend? Calvary Bible Church strives to live out the calling to be more like Jesus Christ, by studying and obeying the principles He has set forth in His Word.'
 phone: (410) 848-1848
-church_email: CalvaryBibleMDPastor@Gmail.com
+church_email: calvarybiblechurchmaryland@yahoo.com
 facebook: 'https://www.facebook.com/calvarybiblechurchmaryland'
 twitter:
 youtube:
@@ -30,4 +30,4 @@ map_zoom_level: 16
 main_blog_image: /uploads/1.jpg
 main_sermon_image: /uploads/2.jpg
 default_calendar_image: /uploads/3.jpg
-Google_calendar_id: CalvaryBibleMD@gmail.com
+Google_calendar_id: calvarybiblemd@gmail.com
